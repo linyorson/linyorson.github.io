@@ -10,9 +10,9 @@
 
 ## 2.作业2
     思来想去，决定画一个东京奥运会的奖牌榜的分布图。原来打算只画金牌的，后来觉得symbol的圆形特别像奖牌，一时兴起就把三个都弄了，不料symbol染不了色，三个一样就很丑，于是就干脆不显示了。有一点不太直观，的地方在于，奖牌数量极差太大，欧洲很多国家又很小，染色效果一般
-[2](https://linyorson.github.io/medal_world.html)
+[东京奥运会_奖牌分布图](https://linyorson.github.io/medal_world.html)
 
 ## 3.作业3
     数据源自 手游明日方舟某次卡池大约700w的抽卡记录，希望通过画图直观的感受触发特殊概率机制（50抽）之后未公布的概率分布。
     数据处理过程不是重点，忽略。最开始花了一张概率随抽数变化的折线图，但发现相比用组合图标，把4种线花在一起更直观，就又画了一系列饼图。这个时候用timeline就很合适了
-[3](https://linyorson.github.io/ark_pie.html)
+[明日方舟_抽数频率图](https://linyorson.github.io/ark_pie.html)
