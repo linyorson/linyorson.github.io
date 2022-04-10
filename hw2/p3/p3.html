@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<style>
+			body
+			{
+/* 加载背景图 */
+background-image: url(./1.jpeg);
+/* 背景图垂直、水平均居中 */
+background-position: center center;
+/* 背景图不平铺 */
+background-repeat: no-repeat;
+/* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+background-attachment: fixed;
+/* 让背景图基于容器大小伸缩 */
+background-size: cover;
+/* 设置背景颜色，背景图加载过程中会显示背景色 */
+background-color: #464646;
+margin: 50px;
+			}
+			h1,h2,h3
+			{
+				color:black;
+			}
+			p
+			{
+				text-indent:2em
+			}
+div.background {
+  background: url(klematis.jpg) repeat;
+  border: 2px solid black;
+}
+
+div.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+}
+
+div.transbox p {
+  margin: 1%;
+  font-weight: bold;
+  color: #000000;
+}
+div.transbox h2 {
+  margin: 1%;
+  /*font-weight: bold;*/
+  color: #000000;
+}
+		</style>
+	<div class="background">
+  <div class="transbox">
+		<title>《三体》人物关系图</title>
+	</head>
+	<body>
+		<h1 style="text-align: center;color:black">《三体》人物关系图</h1>
+		<h2> 一、背景</h2>
+			<p>《三体》三部曲作为中国科幻史上浓墨重彩的一笔，时间线横跨数百万年，人物关系虽不算错综复杂，但中英混合的名字还是加大了辨识的难度。
+		尤其是在多年之后回忆的时候，各种人名在这样的背景下更是令人困惑。因此画出人物关系图，希望能帮助各位梳理。</p>
+		<h2> 二、实现思路</h2>
+		<p>
+			三体的人名大致有三种：
+		<p>	第一种：中文名，例如章北海</p>
+		<p>	第二种：英文名，例如雷迪兹曼</p>
+		<p>	第三种：新时代中英混合名字，例如高Way</p>
+		<p>	我们依旧用jieba库筛选<span style="color: grey; text-decoration:line-through">虽然jieba库不太适应三体的神奇名字,还得手工筛</span></p>
+			<p>在筛选出人名的基础上
+			我们认定<span style="color: red;">两个人的关系和同一段中出现的次数有关</span>。实际上，对于一些对话形式的段落，这样的方式会认为两个人没有关系，不过无伤大雅。
+		</p>
+		<h2> 三、关系图</h2>
+		<p>
+			总共做了两版关系。</p>
+		<p>一板是<span style="color: red;">事无巨细</span>的关系图，适合对三体还算熟悉的朋友。</p>
+		<p>一板是<span style="color: red;">忽略了一些关系比较少的人物</span>的简略版，适合看了三体好多年需要回忆的朋友。</p>
+			<p><a href="./三体-easy.html">简略版</a></p>
+			<p><a href="./三体-hard.html">事无巨细版</a></p>
+		
+		</form>
+		
+		
+		
+  </div>
+</div>
+	</body>
+</html>
+
