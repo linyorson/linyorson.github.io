@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body
+			{
+				margin: 50px;
+				background-color:lightblue
+			}
+			h1,h2,h3
+			{
+				color: red;
+			}
+			p
+			{
+				text-indent:2em
+			}
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+		</style>
+		
+		<title>人物关系图 图文教程</title>
+	</head>
+	
+	<body>
+		
+		<style>background-color: lightblue;</style>
+		<h1 style="text-align: center;color:black">人物关系图 图文教程</h1>
+		<h2>工作目标</h2>
+		<p>对于一篇小说，统计任意两个人物在同一段落中<a style="color:red">共同出现</a>（“共现”）的数量</p>
+		<h2>文本示例</h2>
+		<p >刘备和关羽、张飞去隆中卧龙岗拜访诸葛亮。不巧，诸葛亮外出游玩，不知何时回来。过了一段时间，在一个大雪天，他们又去了卧龙岗，还是没有见到诸葛亮。</p>
+		<p>新年之后，刘、关、张三人第三次来到卧龙岗。这次，诸葛亮正好在家午睡。刘备让关羽、张飞留在门外，自己站在台阶下静静等候。过了很久，诸葛亮醒来。刘备终于见到了传说中的“卧龙先生”，当即向他请教天下大势。这就是“三顾茅庐”和“隆中对”的故事。</p>
+		<h2>处理过程</h2>
+		<h3>第1步：生成基础数据（一个列表，一个字典）</h3>
+		<p>一次检查一个段落，同时完成下面两项工作</p>
+		<h4>A）	生成每个段落出现的人物列表（line_name_list）：</h4>
+		<p>格式：line_name_list = [ [第一段的人物], [第二段的人物], …]</p>
+		<p>第一段的人物：刘备，关羽，张飞，诸葛亮，诸葛亮，诸葛亮</p>
+		<p>第二段的人物：诸葛亮，刘备，关羽，张飞，诸葛亮，刘备，诸葛亮</p>
+		<h4>B）用字典统计人物出现次数（name_cnt_dict）：</h4>
+		<p>诸葛亮：6，刘备：3，关羽2，张飞：2</p>
+		<p><img alt="图片未显示" width="400" height="100" src="./1.png"></p>
+		<h3>第2步：建立一个字典，统计人物“共现”数量（relation_dict）</h3>
+		<p>依次检查人物列表（line_name_list）中的每个元素，即在同一段中出现的人物。</p>
+		<p>对本段中的每一个人物，循环检查本段中的所有人物。出现在同一段中的，记为一次“共现”（共同出现）。</p>
+		<p>在字典relation_dict中，每个人物对应一个“键”，视为连接的起点；与该人物存在“共现”的人物，记录在对应“值”的列表中，视为连接的终点。</p>
+		<p><img alt="图片未显示" width="600" height="400" src="./2.png"></p>
+		<h4>A）处理完第一段之后，relation_dict的内容</h4>
+		
+		
+		
+		<table id="customers" style="background-color:white">
+<tr>
+  <th>键</th>
+  <th>值1</th>
+  <th>值2</th>
+  <th>值3</th>
+  
+</tr>
+<tr>
+<td>刘备</td>
+<td>关羽：1</td>
+<td>张飞：1</td>
+<td>诸葛亮：3</td>
+
+</tr>
+<tr class="alt">
+<td>关羽</td>
+<td>刘备：1</td>
+<td>张飞：1</td>
+<td>诸葛亮：3</td>
+</tr>
+<tr>
+<td>张飞</td>
+<td>关羽：1</td>
+<td>刘备：1</td>
+<td>诸葛亮：3</td>
+</tr>
+<tr class="alt">
+<td>诸葛亮</td>
+<td>关羽：3</td>
+<td>张飞：3</td>
+<td>刘备：3</td>
+</tr>
+
+</table>
+
+
+
+<h4>B）处理完第二段之后，relation_dict的内容</h4>
+		<table id="customers" style="background-color:white"	>
+<tr>
+  <th>键</th>
+  <th>值1</th>
+  <th>值2</th>
+  <th>值3</th>
+  
+</tr>
+<tr>
+<td>刘备</td>
+<td>关羽：3</td>
+<td>张飞：3</td>
+<td>诸葛亮：9</td>
+
+</tr>
+<tr class="alt">
+<td>关羽</td>
+<td>刘备：3</td>
+<td>张飞：2</td>
+<td>诸葛亮：6</td>
+</tr>
+<tr>
+<td>张飞</td>
+<td>关羽：2</td>
+<td>刘备：3</td>
+<td>诸葛亮：6</td>
+</tr>
+<tr class="alt">
+<td>诸葛亮</td>
+<td>关羽：6</td>
+<td>张飞：6</td>
+<td>刘备：9</td>
+</tr>
+
+</table>
+		<h3>第3步：根据字典画图</h3>
+		<p>使用第三方库pyecharts绘制关系图（Graph），其中节点即为人名，连线即为字典中相应的值。</p>
+	<p>--------------------------</p>
+	<p style="color: blue;">现在你已经学会画图啦！考虑下面这个 简 单 的问题：画出全三国人物的关系图吧！</p>
+	<p><img width="1000" height="500" alt="图片未显示" src="./0.png"></p>
+	</body>
+</html>
+
+
